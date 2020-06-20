@@ -5,7 +5,6 @@
 |key|value|
 |---|-----|
 |Name|具志 敦|
-|Location|神奈川県川崎市川崎区|
 |Nearest station|南武線 八丁畷|
 |Age|34|
 
