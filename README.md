@@ -7,7 +7,6 @@
 |Name|具志 敦|
 |Location|神奈川県川崎市川崎区|
 |Nearest station|南武線 八丁畷|
-|Twitter|[@t1una](https://twitter.com/t1una)|
 |Age|34|
 
 ## 自己紹介
