@@ -1,6 +1,6 @@
 .idea/
-dist/
-node_modules/
-src/**/*.jsx
-tests/__coverage__/
-tests/**/*.jsx
+react/dist/
+react/node_modules/
+react/src/**/*.jsx
+react/tests/__coverage__/
+react/tests/**/*.jsx
