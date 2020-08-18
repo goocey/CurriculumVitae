@@ -10,7 +10,7 @@ module.exports = merge(commonConfig, {
   output: {
     filename: 'js/bundle.[hash].min.js',
     path: resolve(__dirname, '../../../docs'),
-    publicPath: '/',
+    publicPath: '/CurriculumVitae/',
   },
   devtool: 'source-map',
   plugins: [],
