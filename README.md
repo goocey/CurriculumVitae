@@ -60,6 +60,7 @@
 - サーバー構築
   - AWSまたはVPSの設計・運用
     - EC2/S3/ELB/IAM
+  - MySQL Cluster
 
 ## 強み
 
