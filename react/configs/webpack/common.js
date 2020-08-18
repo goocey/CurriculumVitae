@@ -2,6 +2,7 @@
 const {resolve} = require('path');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -43,6 +44,7 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new HtmlWebpackPlugin({template: 'index.html.ejs',}),
+    new FaviconsWebpackPlugin({logo: './assets/logo.png',}),
   ],
   externals: {
     'react': 'React',
