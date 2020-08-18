@@ -1,1 +1,6 @@
-/.idea/
+.idea/
+react/dist/
+react/node_modules/
+react/src/**/*.jsx
+react/tests/__coverage__/
+react/tests/**/*.jsx
