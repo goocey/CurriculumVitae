@@ -24,25 +24,32 @@
   - Go
   - React
 - docker
+  - kubernetes
 
 ## スキル
 
-### 言語
+### 業務利用経験がある言語
 
 - PHP
 - JavaScript
 - ShellScript
+- SQL
+  - MySQL
+  - PostgreSQL
 - 少々
   - Ruby
   - perl
-  - Go
+  - SQL
+    - OracleDB
 
-### フレームワーク
+### 業務利用経験があるフレームワーク
 
-- CakePHP 2
-- Laravel
-- React(業務上触る機会がなかったため、個人的に勉強中)
-- Foundation
+- CakePHP 2(PHP)
+- Catalyst(Perl)
+- Foundation(css/js framework5)
+- 少々
+  - CakePHP 3(PHP)
+  - Laravel(PHP)
 
 ### その他
 
@@ -50,15 +57,14 @@
 - Ansible
 - Docker
   - docker-compose
-  - kubernetes(勉強中)
 - サーバー構築
-  - AWSまたはVPSの立ち上げ
-  - VMのセットアップ
+  - AWSまたはVPSの設計・運用
+    - EC2/S3/ELB/IAM
 
 ## 強み
 
-- プロダクトの立ち上げ〜運用まで行っていた経験がある
-- エンジニアの仕事は作ることだけだから！と言って終わりにしない、プロダクトで必要なものは一体何かを考えてゴールを目指す
+- プロダクトの立ち上げ〜運用まで行っていた経験
+- エンジニアの仕事は作ることだけだから！と言って終わりにせず、プロダクトで必要なものは一体何かを考える姿勢
 
 ## 職務経歴
 

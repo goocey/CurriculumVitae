@@ -63,7 +63,7 @@ const App: React.FC<Props> = ({ qs }) => {
     });
   }, []);
 
-  return <Markdown source={markdownFile} />;
+  return <Markdown source={markdownFile} escapeHtml={false} />;
 };
 
 export default App;
