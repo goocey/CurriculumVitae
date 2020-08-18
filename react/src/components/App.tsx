@@ -7,6 +7,7 @@ import Markdown from "react-markdown";
 import { useEffect, useState } from "react";
 import * as geechs from "./../assets/env/geechs.json";
 import * as levatech from "./../assets/env/levatech.json";
+import * as normal from "./../assets/env/normal.json";
 
 type Props = {
   qs: ParsedQuery;
@@ -35,7 +36,7 @@ const App: React.FC<Props> = ({ qs }) => {
     } else if (qs.agent == "geechs") {
       agentInfo = geechs;
     } else {
-      agentInfo = {};
+      agentInfo = normal;
     }
   };
 
@@ -48,9 +49,8 @@ const App: React.FC<Props> = ({ qs }) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       for (const [key, val] of Object.entries(agentInfo.default)) {
-        data = data + "|" + key + "|" + val;
+        data = data + "|" + key + "|" + val + "|\n";
       }
-      data = data + "|\n";
     }
     markdown = markdown.replace(/{{REPLACE_BASICINFO}}\n/, data);
 
