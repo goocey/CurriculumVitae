@@ -44,7 +44,22 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new HtmlWebpackPlugin({template: 'index.html.ejs',}),
-    new FaviconsWebpackPlugin({logo: './assets/logo.png',}),
+    new FaviconsWebpackPlugin({
+        logo: './assets/logo.png',
+        favicons: {
+          icons: {
+            android: false,
+            appleIcon: false,
+            appleStartup: false,
+            coast: false,
+            favicons: true,
+            firefox: false,
+            windows: false,
+            yandex: false
+          }
+        },
+      }
+    ),
   ],
   externals: {
     'react': 'React',
