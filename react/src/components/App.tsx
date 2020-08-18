@@ -50,9 +50,9 @@ const App: React.FC<Props> = ({ qs }) => {
       for (const [key, val] of Object.entries(agentInfo.default)) {
         data = data + "|" + key + "|" + val;
       }
-      data = data + "|";
+      data = data + "|\n";
     }
-    markdown = markdown.replace("{{REPLACE_BASICINFO}}", data);
+    markdown = markdown.replace(/{{REPLACE_BASICINFO}}\n/, data);
 
     setMarkdownFile(markdown);
   };
