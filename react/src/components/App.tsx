@@ -57,7 +57,7 @@ const App: React.FC<Props> = ({ qs }) => {
         data = data + "|" + key + "|" + val + "|\n";
       }
     }
-    markdown = markdown.replace(/{{REPLACE_BASIC_INFO}}\n/, data);
+    markdown = markdown.replace(/{{REPLACE_BASIC_INFO}}[\r\n]+/, data);
 
     setMarkdownFile(markdown);
   };
@@ -68,11 +68,7 @@ const App: React.FC<Props> = ({ qs }) => {
     });
   }, []);
 
-  return (
-    <div>
-      {processor.processSync(markdownFile).result}
-    </div>
-  );
+  return <div>{processor.processSync(markdownFile).result}</div>;
 };
 
 export default App;
