@@ -5,7 +5,7 @@ const config: Configuration = {
   context: path.join(__dirname, 'src'),
   entry: './index.tsx',
   output: {
-    path: path.join(__dirname, '../docs'),
+    path: path.join(__dirname, '../docs/'),
     filename: 'bundle.js',
     publicPath: '/assets',
   },

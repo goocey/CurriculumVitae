@@ -3,26 +3,26 @@ import * as React from "react";
 import "./../assets/scss/App.scss";
 import { ParsedQuery } from "query-string";
 import axios from "axios";
-import Markdown from "react-markdown";
 import { useEffect, useState } from "react";
 import * as geechs from "./../assets/env/geechs.json";
 import * as levatech from "./../assets/env/levatech.json";
 import * as normal from "./../assets/env/normal.json";
+import remark from "remark";
+import reactRenderer from "remark-react";
 
 type Props = {
   qs: ParsedQuery;
 };
-
-const markdownUrl =
-  "https://raw.githubusercontent.com/g00chy/CurriculumVitae/master/README.md";
 
 // eslint-disable-next-line react/prop-types
 const App: React.FC<Props> = ({ qs }) => {
   const [markdownFile, setMarkdownFile] = useState(null);
   let markdown = "";
   let agentInfo = {};
+  const processor = remark().use(reactRenderer);
 
   const getMarkdown = async () => {
+    const markdownUrl = process.env.REACT_APP_MARKDOWN_URL;
     await axios.get(markdownUrl, null).then((res) => {
       markdown = res.data;
     });
@@ -63,7 +63,11 @@ const App: React.FC<Props> = ({ qs }) => {
     });
   }, []);
 
-  return <Markdown source={markdownFile} escapeHtml={false} />;
+  return (
+    <div className="markdown-body">
+      {processor.processSync(markdownFile).result}
+    </div>
+  );
 };
 
 export default App;

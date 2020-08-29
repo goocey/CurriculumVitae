@@ -5,7 +5,6 @@
 |key|value|
 |---|-----|
 {{REPLACE_BASICINFO}}
-|Name|具志 敦|
 |Nearest station|南武線 八丁畷|
 |Age|34|
 

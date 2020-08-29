@@ -2,6 +2,7 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const commonConfig = require('./common');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(commonConfig, {
   mode: 'development',
@@ -17,5 +18,6 @@ module.exports = merge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+    new Dotenv({ path: './.env.local' }),
   ],
 });
