@@ -26,11 +26,10 @@
     "build": "yarn run clean-dist && webpack -p --config=configs/webpack/prod.js",
     "clean-dist": "rimraf ../docs/*",
     "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet",
-    "start": "yarn run start-dev",
-    "start-dev": "webpack-dev-server --config=configs/webpack/dev.js",
+    "startdev:react": "webpack-dev-server --config=configs/webpack/dev.js",
+    "startdev:localserver": "yarn http-server ..\\ -p 8081 --cors='*'",
     "start-prod": "yarn run build && node express.js",
-    "test": "jest --coverage --watchAll --config=configs/jest.json",
-    "start-local-server": "yarn http-server ..\\ -p 8081 --cors='*'"
+    "test": "jest --coverage --watchAll --config=configs/jest.json"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",

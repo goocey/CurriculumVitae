@@ -4,9 +4,16 @@ import "./../assets/scss/App.scss";
 import { ParsedQuery } from "query-string";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 import * as geechs from "./../assets/env/geechs.json";
 import * as levatech from "./../assets/env/levatech.json";
 import * as normal from "./../assets/env/normal.json";
+
+const config = new Map();
+config.set("normal", normal);
+config.set("levatech", levatech);
+config.set("geechs", geechs);
+
 import remark from "remark";
 import reactRenderer from "remark-react";
 
@@ -18,7 +25,7 @@ type Props = {
 const App: React.FC<Props> = ({ qs }) => {
   const [markdownFile, setMarkdownFile] = useState(null);
   let markdown = "";
-  let agentInfo = {};
+  let agentInfo;
   const processor = remark().use(reactRenderer);
 
   const getMarkdown = async () => {
@@ -30,13 +37,11 @@ const App: React.FC<Props> = ({ qs }) => {
 
   const setAgentInfo = (): void => {
     // eslint-disable-next-line react/prop-types
-    if (qs.agent == "levatech") {
-      agentInfo = levatech;
-      // eslint-disable-next-line react/prop-types
-    } else if (qs.agent == "geechs") {
-      agentInfo = geechs;
+    if (qs.agent == null) {
+      agentInfo = config.get("normal");
     } else {
-      agentInfo = normal;
+      // eslint-disable-next-line react/prop-types
+      agentInfo = config.get(`${qs.agent}`);
     }
   };
 
@@ -52,7 +57,7 @@ const App: React.FC<Props> = ({ qs }) => {
         data = data + "|" + key + "|" + val + "|\n";
       }
     }
-    markdown = markdown.replace(/{{REPLACE_BASICINFO}}\n/, data);
+    markdown = markdown.replace(/{{REPLACE_BASIC_INFO}}\n/, data);
 
     setMarkdownFile(markdown);
   };
@@ -64,7 +69,7 @@ const App: React.FC<Props> = ({ qs }) => {
   }, []);
 
   return (
-    <div className="markdown-body">
+    <div>
       {processor.processSync(markdownFile).result}
     </div>
   );
