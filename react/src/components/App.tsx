@@ -14,9 +14,6 @@ type Props = {
   qs: ParsedQuery;
 };
 
-const markdownUrl =
-  "https://raw.githubusercontent.com/g00chy/CurriculumVitae/master/README.md";
-
 // eslint-disable-next-line react/prop-types
 const App: React.FC<Props> = ({ qs }) => {
   const [markdownFile, setMarkdownFile] = useState(null);
@@ -25,6 +22,7 @@ const App: React.FC<Props> = ({ qs }) => {
   const processor = remark().use(reactRenderer);
 
   const getMarkdown = async () => {
+    const markdownUrl = process.env.REACT_APP_MARKDOWN_URL;
     await axios.get(markdownUrl, null).then((res) => {
       markdown = res.data;
     });

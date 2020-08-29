@@ -1,8 +1,8 @@
 // production config
 const merge = require('webpack-merge');
 const {resolve} = require('path');
-
 const commonConfig = require('./common');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(commonConfig, {
   mode: 'production',
@@ -13,5 +13,7 @@ module.exports = merge(commonConfig, {
     publicPath: '/CurriculumVitae/',
   },
   devtool: 'source-map',
-  plugins: [],
+  plugins: [
+    new Dotenv({ path: './.env.prod' }),
+  ],
 });
