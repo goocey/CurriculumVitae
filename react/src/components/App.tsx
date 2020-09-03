@@ -25,7 +25,8 @@ type Props = {
 const App: React.FC<Props> = ({ qs }) => {
   const [markdownFile, setMarkdownFile] = useState(null);
   let markdown = "";
-  let agentInfo;
+  let title = "";
+  let agentInfo: { default?: any; };
   const processor = remark().use(reactRenderer);
 
   const getMarkdown = async () => {
@@ -37,12 +38,9 @@ const App: React.FC<Props> = ({ qs }) => {
 
   const setAgentInfo = (): void => {
     // eslint-disable-next-line react/prop-types
-    if (qs.agent == null) {
-      agentInfo = config.get("normal");
-    } else {
-      // eslint-disable-next-line react/prop-types
-      agentInfo = config.get(`${qs.agent}`);
-    }
+    const agent = qs.agent == null ? "normal" : qs.agent;
+    agentInfo = config.get(agent).basic_info;
+    title = config.get(agent).title;
   };
 
   const replaceMarkdown = (): void => {
@@ -53,18 +51,18 @@ const App: React.FC<Props> = ({ qs }) => {
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      for (const [key, val] of Object.entries(agentInfo.default)) {
+      for (const [key, val] of Object.entries(agentInfo)) {
         data = data + "|" + key + "|" + val + "|\n";
       }
     }
     markdown = markdown.replace(/{{REPLACE_BASIC_INFO}}[\r\n]+/, data);
-
     setMarkdownFile(markdown);
   };
 
   useEffect(() => {
     getMarkdown().then((value) => {
       replaceMarkdown();
+      document.title = title;
     });
   }, []);
 
