@@ -2,7 +2,7 @@
 
 ## 基本情報
 
-|key|value|c
+|key|value|
 |---|-----|
 {{REPLACE_BASIC_INFO}}
 |Nearest station|南武線 八丁畷|
