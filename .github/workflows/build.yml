@@ -55,5 +55,5 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
           LOCAL_DIR: docs # どのディレクトリのデータをアップロードするか
           REMOTE_DIR: curriculumvitae # リモートのどのディレクトリにアップロードするか
-          protocol: ftps-legacy
+          protocol: ftps
           ARGS: --delete
