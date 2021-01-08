@@ -1,3 +1,4 @@
+# 大本はここからぱくりました。https://qiita.com/nouka/items/aae1e68dfe81e4441c4f
 # ワークフローの名前
 name: Release 
 
@@ -12,12 +13,13 @@ on:
 jobs:
   build:
     # 実行するインスタンス
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     # nodeのバージョン一覧
     strategy:
       matrix:
-        node-version: ['15.5']
+        node-version: ['14.15.4']
+        python-version: ['3.8.6']
 
     # 各ステップの実行
     steps:
@@ -27,9 +29,14 @@ jobs:
 
     # 使用するnodeのバージョンを指定
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
 
     # パッケージのインストールとアプリのビルド
     - name: install and build
@@ -40,6 +47,7 @@ jobs:
       env:
         CI: true
 
+    # FTPで転送（ここからぱくりました。https://qiita.com/chieeeeno/items/6be835c74d6d7f597c6a）
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@2.0.0   # FTPを使ってサーバーにDeployするアクションを実行
       env:                                        # FTP環境の設定を行う
