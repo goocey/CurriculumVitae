@@ -16,6 +16,7 @@ config.set("geechs", geechs);
 
 import remark from "remark";
 import reactRenderer from "remark-react";
+import slug from "remark-slug";
 
 type Props = {
   qs: ParsedQuery;
@@ -27,7 +28,7 @@ const App: React.FC<Props> = ({ qs }) => {
   let markdown = "";
   let title = "";
   let agentInfo: { default?: any; };
-  const processor = remark().use(reactRenderer);
+  const processor = remark().use(slug).use(reactRenderer);
 
   const getMarkdown = async () => {
     const markdownUrl = process.env.REACT_APP_MARKDOWN_URL;
