@@ -17,6 +17,8 @@ config.set("geechs", geechs);
 import remark from "remark";
 import reactRenderer from "remark-react";
 import slug from "remark-slug";
+import merge from "deepmerge";
+import sanitizeGhSchema from "hast-util-sanitize/lib/github.json"
 
 type Props = {
   qs: ParsedQuery;
@@ -28,7 +30,13 @@ const App: React.FC<Props> = ({ qs }) => {
   let markdown = "";
   let title = "";
   let agentInfo: { default?: any; };
-  const processor = remark().use(slug).use(reactRenderer);
+  const processor = remark().use(slug).
+    use(reactRenderer, {
+      sanitize: merge(sanitizeGhSchema, {
+        clobberPrefix: "",
+        attributes: { code: ["className"] },
+      })
+    });
 
   const getMarkdown = async () => {
     const markdownUrl = process.env.REACT_APP_MARKDOWN_URL;
