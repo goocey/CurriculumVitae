@@ -5,3 +5,4 @@ react/src/**/*.jsx
 react/tests/__coverage__/
 react/tests/**/*.jsx
 react/docs/*
+docs/*
