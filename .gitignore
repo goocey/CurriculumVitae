@@ -6,3 +6,4 @@ react/tests/__coverage__/
 react/tests/**/*.jsx
 react/docs/*
 docs/*
+react/yarn-error.log
