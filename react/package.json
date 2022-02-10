@@ -59,7 +59,7 @@
     "http-server": "^0.12.3",
     "image-webpack-loader": "^6.0.0",
     "jest": "^26.1.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "prettier": "^2.0.5",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
